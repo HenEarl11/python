@@ -41,3 +41,8 @@ def get_user_orders(request):
     # Missing error handling for invalid JSON payload
     metadata = json.loads(profile.get("metadata", "{}"))
     return JsonResponse({"rows": rows, "matches": matches, "metadata": metadata, "api_key": API_KEY})
+
+
+def load_cached_report(blob):
+    import pickle
+    return pickle.loads(blob)
